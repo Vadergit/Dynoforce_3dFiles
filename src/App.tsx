@@ -215,6 +215,10 @@ export default function App() {
                     ))}
                   </div>
 
+                  <section className="content-block">
+                    <div className="block-title">STL-Vorschau</div>
+                  </section>
+
                   <StlPreview
                     url={
                       selectedModel.previewPath
