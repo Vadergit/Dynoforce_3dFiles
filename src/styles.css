@@ -98,7 +98,7 @@ input {
 }
 
 .hero {
-  padding: 84px 0 44px;
+  padding: 48px 0 24px;
 }
 
 .hero-grid,
@@ -129,7 +129,7 @@ input {
 }
 
 .hero-copy {
-  padding: 40px;
+  padding: 32px;
 }
 
 .hero-panel {
@@ -195,14 +195,7 @@ h3 {
 .lead {
   max-width: 62ch;
   font-size: 1.12rem;
-  margin-top: 18px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 14px;
 }
 
 .button,
@@ -257,6 +250,41 @@ h3 {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(19, 31, 54, 0.05);
+}
+
+.site-footer {
+  padding: 0 0 44px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: center;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(19, 31, 54, 0.08);
+}
+
+.footer-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.footer-copy {
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .stats-band {
@@ -586,6 +614,11 @@ h3 {
   .structure-card,
   .stats-grid article {
     padding: 22px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .viewer-shell,

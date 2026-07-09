@@ -88,14 +88,6 @@ export default function App() {
                 DynoForce an, ist aber für 3D-Dateien und technische Inhalte
                 optimiert.
               </p>
-              <div className="hero-actions">
-                <a className="button button-primary" href="#library">
-                  Zur 3D-Bibliothek
-                </a>
-                <a className="button button-secondary" href="#details">
-                  Modelldetails ansehen
-                </a>
-              </div>
             </div>
 
             <div className="hero-panel">
@@ -288,6 +280,37 @@ export default function App() {
         </section>
 
       </main>
+
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <div>
+            <div className="footer-title">DynoForce</div>
+            <p className="footer-copy">
+              3D-Dateien, Druckhinweise und CAD-Downloads für DynoGrip,
+              DynoPull und passendes Zubehör.
+            </p>
+          </div>
+          <div className="footer-links">
+            <a href="https://dynoforce.ch" target="_blank" rel="noreferrer">
+              Website
+            </a>
+            <a
+              href="https://dynoforce-wiki.web.app/#uebersicht"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Wiki
+            </a>
+            <a
+              href="https://event.dynoforce.ch"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Event-Seite
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
