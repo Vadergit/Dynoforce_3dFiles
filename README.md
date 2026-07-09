@@ -23,9 +23,9 @@ npm run build
 
 ## GitHub Pages
 
-Die App ist fuer GitHub Pages auf dem Repo-Pfad `Dynoforce_3dFiles` vorkonfiguriert.
+Die App ist fuer GitHub Pages und eine eigene Subdomain vorkonfiguriert.
 
-- Vite nutzt die Base-URL `/Dynoforce_3dFiles/`
+- Vite nutzt relative Asset-Pfade, damit sowohl GitHub Pages als auch `download.dynoforce.ch` funktionieren
 - der Workflow unter `.github/workflows/deploy-pages.yml` baut und deployed automatisch bei Push auf `main`
 - im GitHub-Repo muss unter `Settings > Pages` als Source `GitHub Actions` aktiviert sein
 
