@@ -268,7 +268,7 @@ export default function App() {
           </div>
           <div className="footer-links">
             <a href="https://dynoforce.ch" target="_blank" rel="noreferrer">
-              Website
+              Hauptseite
             </a>
             <a
               href="https://dynoforce-wiki.web.app/#uebersicht"
