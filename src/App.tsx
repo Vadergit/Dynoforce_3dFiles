@@ -1,7 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 import StlPreview from "./components/StlPreview";
 import { models, productFilters } from "./data/models";
-import type { ModelEntry, ProductFamily } from "./types";
+import {
+  defaultLanguage,
+  detectLanguage,
+  languageNames,
+  productLabels,
+  supportedLanguages,
+  translate,
+  uiText,
+} from "./i18n";
+import type { Language, ModelEntry, ProductFamily } from "./types";
 
 function formatList(items: string[]) {
   return items.join(" · ");
@@ -12,9 +21,19 @@ function withBase(path: string) {
 }
 
 export default function App() {
+  const [language, setLanguage] = useState<Language>(defaultLanguage);
   const [query, setQuery] = useState("");
   const [productFilter, setProductFilter] = useState<ProductFamily>("All");
   const [selectedId, setSelectedId] = useState(models[0]?.id ?? "");
+
+  useEffect(() => {
+    setLanguage(detectLanguage());
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("dynoforce-lang", language);
+    document.documentElement.lang = language;
+  }, [language]);
 
   const filteredModels = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -23,11 +42,11 @@ export default function App() {
       const matchesProduct =
         productFilter === "All" || model.product === productFilter;
       const haystack = [
-        model.title,
+        translate(model.title, language),
         model.product,
-        model.category,
-        model.summary,
-        model.tags.join(" "),
+        translate(model.category, language),
+        translate(model.summary, language),
+        model.tags[language].join(" "),
       ]
         .join(" ")
         .toLowerCase();
@@ -36,7 +55,7 @@ export default function App() {
 
       return matchesProduct && matchesQuery;
     });
-  }, [productFilter, query]);
+  }, [language, productFilter, query]);
 
   useEffect(() => {
     if (!filteredModels.some((model) => model.id === selectedId)) {
@@ -54,18 +73,34 @@ export default function App() {
     <div className="app-shell">
       <header className="site-header">
         <div className="container topbar">
-          <a className="brand" href="#top" aria-label="DynoForce 3D Library">
+          <a className="brand" href="#top" aria-label={translate(uiText.brand, language)}>
             <img
               className="brand-mark"
               src={`${import.meta.env.BASE_URL}brand/favicon.png`}
               alt=""
             />
-            <span>DynoForce 3D Library</span>
+            <span>{translate(uiText.brand, language)}</span>
           </a>
-          <nav className="topnav" aria-label="Sektionen">
-            <a href="#library">Bibliothek</a>
-            <a href="#details">Modelldetails</a>
-          </nav>
+          <div className="topbar-actions">
+            <nav className="topnav" aria-label="Sektionen">
+              <a href="#library">{translate(uiText.navLibrary, language)}</a>
+              <a href="#details">{translate(uiText.navDetails, language)}</a>
+            </nav>
+            <div className="lang-switcher" aria-label={translate(uiText.language, language)}>
+              {supportedLanguages.map((nextLanguage) => (
+                <button
+                  key={nextLanguage}
+                  className={
+                    nextLanguage === language ? "lang-button active" : "lang-button"
+                  }
+                  onClick={() => setLanguage(nextLanguage)}
+                  type="button"
+                >
+                  {languageNames[nextLanguage]}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </header>
 
@@ -73,16 +108,9 @@ export default function App() {
         <section className="hero">
           <div className="container hero-grid">
             <div className="hero-copy">
-              <div className="eyebrow">DynoForce CAD & Print Files</div>
-              <h1>
-                STL ansehen, STEP laden und 3D-Dateien ohne Umwege finden.
-              </h1>
-              <p className="lead">
-                Diese Bibliothek ist auf schnelle Navigation, saubere Downloads
-                und klare Druckhinweise ausgelegt. Das Design lehnt sich an
-                DynoForce an, ist aber für 3D-Dateien und technische Inhalte
-                optimiert.
-              </p>
+              <div className="eyebrow">{translate(uiText.heroEyebrow, language)}</div>
+              <h1>{translate(uiText.heroTitle, language)}</h1>
+              <p className="lead">{translate(uiText.heroLead, language)}</p>
             </div>
           </div>
         </section>
@@ -91,15 +119,15 @@ export default function App() {
           <div className="container stats-grid">
             <article>
               <strong>{featuredCount}</strong>
-              <span>Empfohlene Modelle für den Schnellstart</span>
+              <span>{translate(uiText.featuredModels, language)}</span>
             </article>
             <article>
               <strong>STL + STEP</strong>
-              <span>Direkter Download dort, wo beide Formate vorhanden sind</span>
+              <span>{translate(uiText.dualFormat, language)}</span>
             </article>
             <article>
-              <strong>Print Notes</strong>
-              <span>Material-, Slicer- und Einsatzhinweise pro Eintrag</span>
+              <strong>{translate(uiText.notesHeadline, language)}</strong>
+              <span>{translate(uiText.notesStat, language)}</span>
             </article>
           </div>
         </section>
@@ -107,23 +135,19 @@ export default function App() {
         <section className="library-section container" id="library">
           <div className="section-head">
             <div>
-              <div className="eyebrow">3D Library</div>
-              <h2>Suche, Filter und technische Vorschau in einer Ansicht</h2>
+              <div className="eyebrow">{translate(uiText.sectionEyebrow, language)}</div>
+              <h2>{translate(uiText.sectionTitle, language)}</h2>
             </div>
-            <p>
-              Modelle können nach Produktfamilie gefiltert werden. Die rechte
-              Seite zeigt STL-Preview, Downloads und Hinweise für Druck oder
-              Weiterbearbeitung.
-            </p>
+            <p>{translate(uiText.sectionLead, language)}</p>
           </div>
 
           <div className="toolbar">
             <label className="search-field" htmlFor="search">
-              <span>Suchen</span>
+              <span>{translate(uiText.search, language)}</span>
               <input
                 id="search"
                 type="search"
-                placeholder="z. B. DynoGrip, Gehäuse, Attachment ..."
+                placeholder={translate(uiText.searchPlaceholder, language)}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
@@ -139,7 +163,7 @@ export default function App() {
                   onClick={() => setProductFilter(filter)}
                   type="button"
                 >
-                  {filter}
+                  {translate(productLabels[filter], language)}
                 </button>
               ))}
             </div>
@@ -150,6 +174,7 @@ export default function App() {
               {filteredModels.map((model) => (
                 <ModelCard
                   key={model.id}
+                  language={language}
                   model={model}
                   active={model.id === selectedModel?.id}
                   onSelect={() => setSelectedId(model.id)}
@@ -157,7 +182,7 @@ export default function App() {
               ))}
               {filteredModels.length === 0 ? (
                 <div className="empty-results">
-                  Keine Modelle für diesen Filter gefunden.
+                  {translate(uiText.noModels, language)}
                 </div>
               ) : null}
             </div>
@@ -168,15 +193,17 @@ export default function App() {
                   <div className="details-head">
                     <div>
                       <div className="eyebrow">{selectedModel.product}</div>
-                      <h3>{selectedModel.title}</h3>
+                      <h3>{translate(selectedModel.title, language)}</h3>
                     </div>
                     <span className="version-pill">{selectedModel.version}</span>
                   </div>
 
-                  <p className="details-summary">{selectedModel.summary}</p>
+                  <p className="details-summary">
+                    {translate(selectedModel.summary, language)}
+                  </p>
 
                   <div className="tag-row">
-                    {selectedModel.tags.map((tag) => (
+                    {selectedModel.tags[language].map((tag) => (
                       <span className="tag" key={tag}>
                         {tag}
                       </span>
@@ -184,10 +211,13 @@ export default function App() {
                   </div>
 
                   <section className="content-block">
-                    <div className="block-title">STL-Vorschau</div>
+                    <div className="block-title">{translate(uiText.preview, language)}</div>
                   </section>
 
                   <StlPreview
+                    emptyText={translate(uiText.noPreview, language)}
+                    loadingText={translate(uiText.stlLoading, language)}
+                    stepText={translate(uiText.stepDownloadable, language)}
                     url={
                       selectedModel.previewPath
                         ? withBase(selectedModel.previewPath)
@@ -197,17 +227,19 @@ export default function App() {
 
                   <div className="meta-grid">
                     <div className="meta-card">
-                      <span className="meta-label">Kategorie</span>
-                      <strong>{selectedModel.category}</strong>
+                      <span className="meta-label">{translate(uiText.category, language)}</span>
+                      <strong>{translate(selectedModel.category, language)}</strong>
                     </div>
                     <div className="meta-card">
-                      <span className="meta-label">Material empfohlen</span>
-                      <strong>{formatList(selectedModel.materials)}</strong>
+                      <span className="meta-label">
+                        {translate(uiText.materials, language)}
+                      </span>
+                      <strong>{formatList(selectedModel.materials[language])}</strong>
                     </div>
                   </div>
 
                   <section className="content-block">
-                    <div className="block-title">Downloads</div>
+                    <div className="block-title">{translate(uiText.downloads, language)}</div>
                     <div className="downloads">
                       {selectedModel.files.map((file) => (
                         <a
@@ -217,7 +249,7 @@ export default function App() {
                           download={file.fileName}
                         >
                           <div>
-                            <strong>{file.label}</strong>
+                            <strong>{translate(file.label, language)}</strong>
                             <span>
                               {file.format.toUpperCase()} · {file.sizeLabel}
                             </span>
@@ -229,18 +261,18 @@ export default function App() {
                   </section>
 
                   <section className="content-block">
-                    <div className="block-title">Druckhinweise</div>
+                    <div className="block-title">{translate(uiText.printNotes, language)}</div>
                     <ul className="notes-list">
-                      {selectedModel.printNotes.map((note) => (
+                      {selectedModel.printNotes[language].map((note) => (
                         <li key={note}>{note}</li>
                       ))}
                     </ul>
                   </section>
 
                   <section className="content-block">
-                    <div className="block-title">Infos & Kommentare</div>
+                    <div className="block-title">{translate(uiText.infoNotes, language)}</div>
                     <ul className="notes-list">
-                      {selectedModel.infoNotes.map((note) => (
+                      {selectedModel.infoNotes[language].map((note) => (
                         <li key={note}>{note}</li>
                       ))}
                     </ul>
@@ -248,41 +280,37 @@ export default function App() {
                 </>
               ) : (
                 <div className="empty-results">
-                  Kein Modell ausgewählt.
+                  {translate(uiText.noModelSelected, language)}
                 </div>
               )}
             </aside>
           </div>
         </section>
-
       </main>
 
       <footer className="site-footer">
         <div className="container footer-inner">
           <div>
             <div className="footer-title">DynoForce</div>
-            <p className="footer-copy">
-              3D-Dateien, Druckhinweise und CAD-Downloads für DynoGrip,
-              DynoPull und passendes Zubehör.
-            </p>
+            <p className="footer-copy">{translate(uiText.footerCopy, language)}</p>
           </div>
           <div className="footer-links">
             <a href="https://dynoforce.ch" target="_blank" rel="noreferrer">
-              Hauptseite
+              {translate(uiText.footerHome, language)}
             </a>
             <a
               href="https://dynoforce-wiki.web.app/#uebersicht"
               target="_blank"
               rel="noreferrer"
             >
-              Wiki
+              {translate(uiText.footerWiki, language)}
             </a>
             <a
               href="https://event.dynoforce.ch"
               target="_blank"
               rel="noreferrer"
             >
-              Event-Seite
+              {translate(uiText.footerEvents, language)}
             </a>
           </div>
         </div>
@@ -292,10 +320,12 @@ export default function App() {
 }
 
 function ModelCard({
+  language,
   model,
   active,
   onSelect,
 }: {
+  language: Language;
   model: ModelEntry;
   active: boolean;
   onSelect: () => void;
@@ -311,15 +341,15 @@ function ModelCard({
       <div className="model-card-head">
         <div>
           <span className="model-product">{model.product}</span>
-          <h3>{model.title}</h3>
+          <h3>{translate(model.title, language)}</h3>
         </div>
         <span className="version-pill">{model.version}</span>
       </div>
 
-      <p>{model.summary}</p>
+      <p>{translate(model.summary, language)}</p>
 
       <div className="card-foot">
-        <span>{model.category}</span>
+        <span>{translate(model.category, language)}</span>
         <span>{formatSummary.join(" · ")}</span>
       </div>
     </button>

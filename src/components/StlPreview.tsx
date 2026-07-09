@@ -78,25 +78,35 @@ function ModelMesh({
   );
 }
 
-function LoaderFallback() {
-  return <div className="viewer-status">STL wird geladen...</div>;
+function LoaderFallback({ text }: { text: string }) {
+  return <div className="viewer-status">{text}</div>;
 }
 
-export default function StlPreview({ url }: { url?: string }) {
+export default function StlPreview({
+  url,
+  loadingText,
+  emptyText,
+  stepText,
+}: {
+  url?: string;
+  loadingText: string;
+  emptyText: string;
+  stepText: string;
+}) {
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   if (!url) {
     return (
       <div className="viewer-empty">
-        <p>Für dieses Modell ist noch keine STL-Vorschau hinterlegt.</p>
-        <span>STEP-Dateien bleiben trotzdem direkt downloadbar.</span>
+        <p>{emptyText}</p>
+        <span>{stepText}</span>
       </div>
     );
   }
 
   return (
     <div className="viewer-shell">
-      <Suspense fallback={<LoaderFallback />}>
+      <Suspense fallback={<LoaderFallback text={loadingText} />}>
         <Canvas camera={{ position: [0, 0.1, 3.4], fov: 42 }}>
           <color attach="background" args={["#edf2f7"]} />
           <ambientLight intensity={1.4} />

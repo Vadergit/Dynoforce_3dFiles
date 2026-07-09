@@ -1,8 +1,13 @@
+export type Language = "de" | "en" | "fr" | "it";
+
+export type LocalizedText = Record<Language, string>;
+export type LocalizedTextList = Record<Language, string[]>;
+
 export type ModelFormat = "stl" | "step";
 export type ProductFamily = "All" | "DynoGrip" | "DynoPull" | "Attachments";
 
 export interface ModelFile {
-  label: string;
+  label: LocalizedText;
   format: ModelFormat;
   path: string;
   fileName: string;
@@ -12,15 +17,15 @@ export interface ModelFile {
 export interface ModelEntry {
   id: string;
   slug: string;
-  title: string;
+  title: LocalizedText;
   product: Exclude<ProductFamily, "All">;
-  category: string;
+  category: LocalizedText;
   version: string;
-  summary: string;
-  tags: string[];
-  materials: string[];
-  printNotes: string[];
-  infoNotes: string[];
+  summary: LocalizedText;
+  tags: LocalizedTextList;
+  materials: LocalizedTextList;
+  printNotes: LocalizedTextList;
+  infoNotes: LocalizedTextList;
   files: ModelFile[];
   previewPath?: string;
   featured?: boolean;
