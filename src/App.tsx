@@ -48,12 +48,7 @@ export default function App() {
     filteredModels.find((model) => model.id === selectedId) ??
     filteredModels[0] ??
     null;
-
   const featuredCount = models.filter((model) => model.featured).length;
-  const previewCount = models.filter((model) => model.previewPath).length;
-  const stepCount = models.filter((model) =>
-    model.files.some((file) => file.format === "step"),
-  ).length;
 
   return (
     <div className="app-shell">
@@ -88,25 +83,6 @@ export default function App() {
                 DynoForce an, ist aber für 3D-Dateien und technische Inhalte
                 optimiert.
               </p>
-            </div>
-
-            <div className="hero-panel">
-              <div className="hero-stat">
-                <strong>{models.length}</strong>
-                <span>aufbereitete Einträge</span>
-              </div>
-              <div className="hero-stat">
-                <strong>{previewCount}</strong>
-                <span>Modelle mit STL-Preview</span>
-              </div>
-              <div className="hero-stat">
-                <strong>{stepCount}</strong>
-                <span>Einträge mit STEP-Datei</span>
-              </div>
-              <div className="hero-note">
-                Fokus: schnelle Suche, klare Dateiformate, direkte
-                Druckinformationen und gute Basis für spätere Uploads.
-              </div>
             </div>
           </div>
         </section>
