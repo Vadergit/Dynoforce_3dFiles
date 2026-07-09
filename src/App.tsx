@@ -68,9 +68,8 @@ export default function App() {
             <span>DynoForce 3D Library</span>
           </a>
           <nav className="topnav" aria-label="Sektionen">
-            <a href="#library">Library</a>
-            <a href="#workflow">Workflow</a>
-            <a href="#details">Model details</a>
+            <a href="#library">Bibliothek</a>
+            <a href="#details">Modelldetails</a>
           </nav>
         </div>
       </header>
@@ -86,15 +85,15 @@ export default function App() {
               <p className="lead">
                 Diese Bibliothek ist auf schnelle Navigation, saubere Downloads
                 und klare Druckhinweise ausgelegt. Das Design lehnt sich an
-                DynoForce an, ist aber fuer 3D-Dateien und technische Inhalte
+                DynoForce an, ist aber für 3D-Dateien und technische Inhalte
                 optimiert.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#library">
-                  Zur 3D Library
+                  Zur 3D-Bibliothek
                 </a>
-                <a className="button button-secondary" href="#workflow">
-                  Struktur ansehen
+                <a className="button button-secondary" href="#details">
+                  Modelldetails ansehen
                 </a>
               </div>
             </div>
@@ -102,7 +101,7 @@ export default function App() {
             <div className="hero-panel">
               <div className="hero-stat">
                 <strong>{models.length}</strong>
-                <span>aufbereitete Eintraege</span>
+                <span>aufbereitete Einträge</span>
               </div>
               <div className="hero-stat">
                 <strong>{previewCount}</strong>
@@ -110,11 +109,11 @@ export default function App() {
               </div>
               <div className="hero-stat">
                 <strong>{stepCount}</strong>
-                <span>Eintraege mit STEP-Datei</span>
+                <span>Einträge mit STEP-Datei</span>
               </div>
               <div className="hero-note">
                 Fokus: schnelle Suche, klare Dateiformate, direkte
-                Druckinformationen und gute Basis fuer spaetere Uploads.
+                Druckinformationen und gute Basis für spätere Uploads.
               </div>
             </div>
           </div>
@@ -124,7 +123,7 @@ export default function App() {
           <div className="container stats-grid">
             <article>
               <strong>{featuredCount}</strong>
-              <span>Featured Modelle fuer den Schnellstart</span>
+              <span>Empfohlene Modelle für den Schnellstart</span>
             </article>
             <article>
               <strong>STL + STEP</strong>
@@ -144,8 +143,8 @@ export default function App() {
               <h2>Suche, Filter und technische Vorschau in einer Ansicht</h2>
             </div>
             <p>
-              Modelle koennen nach Produktfamilie gefiltert werden. Die rechte
-              Seite zeigt STL-Preview, Downloads und Hinweise fuer Druck oder
+              Modelle können nach Produktfamilie gefiltert werden. Die rechte
+              Seite zeigt STL-Preview, Downloads und Hinweise für Druck oder
               Weiterbearbeitung.
             </p>
           </div>
@@ -156,7 +155,7 @@ export default function App() {
               <input
                 id="search"
                 type="search"
-                placeholder="z.B. DynoGrip, housing, attachment..."
+                placeholder="z. B. DynoGrip, Gehäuse, Attachment ..."
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
@@ -190,7 +189,7 @@ export default function App() {
               ))}
               {filteredModels.length === 0 ? (
                 <div className="empty-results">
-                  Keine Modelle fuer diesen Filter gefunden.
+                  Keine Modelle für diesen Filter gefunden.
                 </div>
               ) : null}
             </div>
@@ -277,41 +276,13 @@ export default function App() {
                 </>
               ) : (
                 <div className="empty-results">
-                  Kein Modell ausgewaehlt.
+                  Kein Modell ausgewählt.
                 </div>
               )}
             </aside>
           </div>
         </section>
 
-        <section className="workflow-section" id="workflow">
-          <div className="container workflow-grid">
-            <div className="workflow-copy">
-              <div className="eyebrow">Empfohlene Repo-Struktur</div>
-              <h2>So bleibt das Projekt spaeter sauber erweiterbar</h2>
-              <p>
-                Die Seite ist bereits auf eine Library-Struktur vorbereitet:
-                Dateien unter `public/files/...`, Metadaten zentral in
-                `src/data/models.ts` und die UI getrennt vom Rohmaterial.
-              </p>
-            </div>
-
-            <div className="structure-card">
-              <pre>{`Dynoforce_3dFiles/
-├── public/
-│   ├── brand/
-│   └── files/
-│       ├── dynogrip/
-│       ├── dynopull/
-│       └── attachments/
-├── src/
-│   ├── components/
-│   ├── data/
-│   └── styles.css
-└── README.md`}</pre>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );

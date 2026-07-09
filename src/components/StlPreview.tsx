@@ -50,7 +50,7 @@ export default function StlPreview({ url }: { url?: string }) {
   if (!url) {
     return (
       <div className="viewer-empty">
-        <p>Fuer dieses Modell ist noch keine STL-Vorschau hinterlegt.</p>
+        <p>Für dieses Modell ist noch keine STL-Vorschau hinterlegt.</p>
         <span>STEP-Dateien bleiben trotzdem direkt downloadbar.</span>
       </div>
     );
@@ -59,7 +59,7 @@ export default function StlPreview({ url }: { url?: string }) {
   return (
     <div className="viewer-shell">
       <Suspense fallback={<LoaderFallback />}>
-        <Canvas camera={{ position: [0, 0.9, 3.6], fov: 42 }}>
+        <Canvas camera={{ position: [0, 0.1, 3.4], fov: 42 }}>
           <color attach="background" args={["#edf2f7"]} />
           <ambientLight intensity={1.4} />
           <directionalLight position={[4, 5, 4]} intensity={2.2} />
@@ -70,6 +70,7 @@ export default function StlPreview({ url }: { url?: string }) {
             enablePan={false}
             minDistance={2}
             maxDistance={7}
+            target={[0, 0, 0]}
           />
         </Canvas>
       </Suspense>
