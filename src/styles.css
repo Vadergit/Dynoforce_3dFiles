@@ -444,11 +444,18 @@ h3 {
 .viewer-shell,
 .viewer-empty {
   margin-top: 22px;
-  min-height: 360px;
+  height: 360px;
   border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(19, 31, 54, 0.06);
   background: linear-gradient(180deg, #f5f8fc 0%, #ebf1f7 100%);
+}
+
+.viewer-shell > div,
+.viewer-shell canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .viewer-empty,
