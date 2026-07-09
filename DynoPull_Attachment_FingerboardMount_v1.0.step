@@ -1,0 +1,182 @@
+[
+  {
+    "id": "dynogrip-complete-v1-2",
+    "device": "DynoGrip",
+    "category": "Complete Model",
+    "title": "DynoGrip Complete Model",
+    "description": "Komplettes Beispielpaket mit allen druckbaren Teilen.",
+    "longDescription": "Vollständiges DynoGrip Beispielmodell als Download-Karte. In der finalen Version kann hier das komplette Modell mit allen Gehäuse-, Griff- und Kleinteilen verlinkt werden.",
+    "version": "v1.2",
+    "status": "Stable",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PETG / PA-CF",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["complete", "model", "package", "dynogrip"],
+    "preview": "assets/previews/dynogrip-complete.svg",
+    "files": {
+      "step": "files/dynogrip/complete/DynoGrip_Complete_Model_v1.2.step",
+      "stl": "files/dynogrip/complete/DynoGrip_Complete_Model_v1.2.stl"
+    }
+  },
+  {
+    "id": "dynogrip-standard-grips-v1-0",
+    "device": "DynoGrip",
+    "category": "Grips",
+    "title": "Standard Grip Set",
+    "description": "Originale Griffgeometrie als linke und rechte Beispielversion.",
+    "longDescription": "Standard-Griffset für DynoGrip. Gute Basiskarte für normale Ersatz- und Zubehörteile mit STEP und STL als separate Buttons.",
+    "version": "v1.0",
+    "status": "Stable",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PETG / PA-CF",
+    "difficulty": "Easy",
+    "updated": "2026-07-09",
+    "tags": ["grip", "standard", "left", "right", "replacement"],
+    "preview": "assets/previews/grip-standard.svg",
+    "files": {
+      "step": "files/dynogrip/grips/DynoGrip_Grip_Standard_Set_v1.0.step",
+      "stl": "files/dynogrip/grips/DynoGrip_Grip_Standard_Set_v1.0.stl"
+    }
+  },
+  {
+    "id": "dynogrip-large-grips-v1-0",
+    "device": "DynoGrip",
+    "category": "Grips",
+    "title": "Large Grip Set",
+    "description": "Grössere Griffvariante für grössere Hände oder mehr Volumen.",
+    "longDescription": "Alternative Griffgeometrie mit mehr Volumen. Ideal, um auf der Seite verschiedene Griffgrössen nebeneinander darzustellen.",
+    "version": "v1.0",
+    "status": "Beta",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PETG / PA-CF",
+    "difficulty": "Easy",
+    "updated": "2026-07-09",
+    "tags": ["grip", "large", "hands", "modified"],
+    "preview": "assets/previews/grip-large.svg",
+    "files": {
+      "step": "files/dynogrip/grips/DynoGrip_Grip_Large_Set_v1.0.step",
+      "stl": "files/dynogrip/grips/DynoGrip_Grip_Large_Set_v1.0.stl"
+    }
+  },
+  {
+    "id": "dynogrip-wall-mount-v1-1",
+    "device": "DynoGrip",
+    "category": "Attachments",
+    "title": "Wall Mount Attachment",
+    "description": "Wandhalterung als Beispiel für fest montierte Setups.",
+    "longDescription": "Attachment-Karte für eine Wandhalterung. Hier können später Schraubenliste, Montagehinweise und Ausrichtung ergänzt werden.",
+    "version": "v1.1",
+    "status": "Stable",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PETG / PA-CF",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["wall", "mount", "attachment", "fixed"],
+    "preview": "assets/previews/wall-mount.svg",
+    "files": {
+      "step": "files/dynogrip/attachments/DynoGrip_Attachment_WallMount_v1.1.step",
+      "stl": "files/dynogrip/attachments/DynoGrip_Attachment_WallMount_v1.1.stl"
+    }
+  },
+  {
+    "id": "dynogrip-carabiner-adapter-v1-0",
+    "device": "DynoGrip",
+    "category": "Attachments",
+    "title": "Carabiner Adapter",
+    "description": "Adapter für Zug-Setups mit Karabiner oder Band.",
+    "longDescription": "Beispiel für einen Adapter in der Attachment-Kategorie. Der Aufbau eignet sich für Zubehörteile, die nicht direkt zum Standardgerät gehören.",
+    "version": "v1.0",
+    "status": "Beta",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PA-CF empfohlen",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["carabiner", "adapter", "attachment", "pull"],
+    "preview": "assets/previews/carabiner-adapter.svg",
+    "files": {
+      "step": "files/dynogrip/attachments/DynoGrip_Attachment_CarabinerAdapter_v1.0.step",
+      "stl": "files/dynogrip/attachments/DynoGrip_Attachment_CarabinerAdapter_v1.0.stl"
+    }
+  },
+  {
+    "id": "dynogrip-textured-grips-v0-9",
+    "device": "DynoGrip",
+    "category": "Modified Grips",
+    "title": "Textured Grip Set",
+    "description": "Modifizierte Griffoberfläche mit stärkerer Textur.",
+    "longDescription": "Modified-Grips-Beispiel für experimentelle oder alternative Griffvarianten. Status Beta macht sichtbar, dass das Teil noch nicht final sein muss.",
+    "version": "v0.9",
+    "status": "Beta",
+    "compatibility": "DynoGrip v1.0+",
+    "material": "PETG / TPU-CF Test",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["modified", "texture", "grip", "rough"],
+    "preview": "assets/previews/mod-grip-texture.svg",
+    "files": {
+      "step": "files/dynogrip/modified-grips/DynoGrip_ModGrip_Textured_Set_v0.9.step",
+      "stl": "files/dynogrip/modified-grips/DynoGrip_ModGrip_Textured_Set_v0.9.stl"
+    }
+  },
+  {
+    "id": "dynopull-complete-v1-0",
+    "device": "DynoPull",
+    "category": "Complete Model",
+    "title": "DynoPull Complete Model",
+    "description": "Komplettes Beispielpaket für DynoPull Gehäuseteile.",
+    "longDescription": "Komplette Beispielkarte für DynoPull. Gedacht für vollständige Modelle oder grössere Pakete mit allen druckbaren Teilen.",
+    "version": "v1.0",
+    "status": "Stable",
+    "compatibility": "DynoPull v1.0+",
+    "material": "PETG / PA-CF",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["dynopull", "complete", "housing", "package"],
+    "preview": "assets/previews/dynopull-complete.svg",
+    "files": {
+      "step": "files/dynopull/complete/DynoPull_Complete_Model_v1.0.step",
+      "stl": "files/dynopull/complete/DynoPull_Complete_Model_v1.0.stl"
+    }
+  },
+  {
+    "id": "dynopull-fingerboard-mount-v1-0",
+    "device": "DynoPull",
+    "category": "Attachments",
+    "title": "Fingerboard Mount",
+    "description": "Attachment für Fingerboard- oder Kletterwand-Setups.",
+    "longDescription": "Attachment-Beispiel für DynoPull. Gut geeignet für Varianten, welche direkt am Board, an der Wand oder im Trainingsraum montiert werden.",
+    "version": "v1.0",
+    "status": "Stable",
+    "compatibility": "DynoPull v1.0+",
+    "material": "PA-CF empfohlen",
+    "difficulty": "Medium",
+    "updated": "2026-07-09",
+    "tags": ["fingerboard", "mount", "attachment", "climbing"],
+    "preview": "assets/previews/fingerboard-mount.svg",
+    "files": {
+      "step": "files/dynopull/attachments/DynoPull_Attachment_FingerboardMount_v1.0.step",
+      "stl": "files/dynopull/attachments/DynoPull_Attachment_FingerboardMount_v1.0.stl"
+    }
+  },
+  {
+    "id": "dynopull-battery-cover-v1-0",
+    "device": "DynoPull",
+    "category": "Spare Parts",
+    "title": "Battery Cover",
+    "description": "Ersatzteil-Beispiel für Batterie- oder Serviceabdeckungen.",
+    "longDescription": "Spare-Part-Karte für einzelne Ersatzteile. Hier kann später klar stehen, für welche Seriennummer oder Produktrevision das Teil passt.",
+    "version": "v1.0",
+    "status": "Stable",
+    "compatibility": "DynoPull v1.0+",
+    "material": "PETG",
+    "difficulty": "Easy",
+    "updated": "2026-07-09",
+    "tags": ["battery", "cover", "spare", "replacement"],
+    "preview": "assets/previews/spare-cover.svg",
+    "files": {
+      "step": "files/dynopull/spare-parts/DynoPull_SparePart_BatteryCover_v1.0.step",
+      "stl": "files/dynopull/spare-parts/DynoPull_SparePart_BatteryCover_v1.0.stl"
+    }
+  }
+]

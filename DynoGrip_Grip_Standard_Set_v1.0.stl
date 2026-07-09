@@ -1,0 +1,10 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('DynoForce placeholder STEP file for Fingerboard Mount'),'2;1');
+FILE_NAME('DynoPull_Attachment_FingerboardMount_v1.0.step','2026-07-09T00:00:00',('DynoForce'),('DynoForce'),'','','');
+FILE_SCHEMA(('AUTOMOTIVE_DESIGN_CC2'));
+ENDSEC;
+DATA;
+/* Replace this placeholder with the real STEP geometry. */
+ENDSEC;
+END-ISO-10303-21;
