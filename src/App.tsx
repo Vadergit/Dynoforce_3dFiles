@@ -122,7 +122,7 @@ export default function App() {
               <span>{translate(uiText.featuredModels, language)}</span>
             </article>
             <article>
-              <strong>STL + STEP</strong>
+              <strong>STL + STP</strong>
               <span>{translate(uiText.dualFormat, language)}</span>
             </article>
             <article>

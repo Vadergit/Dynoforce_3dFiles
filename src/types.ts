@@ -3,8 +3,8 @@ export type Language = "de" | "en" | "fr" | "it";
 export type LocalizedText = Record<Language, string>;
 export type LocalizedTextList = Record<Language, string[]>;
 
-export type ModelFormat = "stl" | "step";
-export type ProductFamily = "All" | "DynoGrip" | "DynoPull" | "Attachments";
+export type ModelFormat = "stl" | "stp";
+export type ProductFamily = "All" | "DynoGrip";
 
 export interface ModelFile {
   label: LocalizedText;

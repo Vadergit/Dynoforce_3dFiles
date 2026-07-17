@@ -1,4 +1,4 @@
-import type { Language, LocalizedText } from "./types";
+import type { Language, LocalizedText, ProductFamily } from "./types";
 
 export const supportedLanguages: Language[] = ["de", "en", "fr", "it"];
 export const defaultLanguage: Language = "de";
@@ -23,19 +23,7 @@ export const productLabels = {
     fr: "DynoGrip",
     it: "DynoGrip",
   },
-  DynoPull: {
-    de: "DynoPull",
-    en: "DynoPull",
-    fr: "DynoPull",
-    it: "DynoPull",
-  },
-  Attachments: {
-    de: "Anbauteile",
-    en: "Attachments",
-    fr: "Accessoires",
-    it: "Accessori",
-  },
-} satisfies Record<string, LocalizedText>;
+} satisfies Record<ProductFamily, LocalizedText>;
 
 export const uiText = {
   brand: {
@@ -69,10 +57,10 @@ export const uiText = {
     it: "File CAD e stampa DynoForce",
   },
   heroTitle: {
-    de: "STL ansehen, STEP laden und 3D-Dateien ohne Umwege finden.",
-    en: "Preview STL, download STEP and find 3D files without detours.",
-    fr: "Voir les STL, télécharger les STEP et trouver les fichiers 3D sans détour.",
-    it: "Visualizza STL, scarica STEP e trova file 3D senza complicazioni.",
+    de: "STL ansehen, STP laden und 3D-Dateien ohne Umwege finden.",
+    en: "Preview STL, download STP and find 3D files without detours.",
+    fr: "Voir les STL, télécharger les STP et trouver les fichiers 3D sans détour.",
+    it: "Visualizza STL, scarica STP e trova file 3D senza complicazioni.",
   },
   heroLead: {
     de: "Diese Bibliothek ist auf schnelle Navigation, saubere Downloads und klare Druckhinweise ausgelegt. Das Design lehnt sich an DynoForce an, ist aber für 3D-Dateien und technische Inhalte optimiert.",
@@ -129,10 +117,10 @@ export const uiText = {
     it: "Cerca",
   },
   searchPlaceholder: {
-    de: "z. B. DynoGrip, Gehäuse, Anbauteil ...",
-    en: "e.g. DynoGrip, housing, attachment ...",
-    fr: "p. ex. DynoGrip, boîtier, accessoire ...",
-    it: "per es. DynoGrip, alloggiamento, accessorio ...",
+    de: "z. B. Core Unit, MainGrip, Mini ...",
+    en: "e.g. Core Unit, MainGrip, Mini ...",
+    fr: "p. ex. Core Unit, MainGrip, Mini ...",
+    it: "per es. Core Unit, MainGrip, Mini ...",
   },
   noModels: {
     de: "Keine Modelle für diesen Filter gefunden.",
@@ -183,10 +171,10 @@ export const uiText = {
     it: "Nessun modello selezionato.",
   },
   footerCopy: {
-    de: "3D-Dateien, Druckhinweise und CAD-Downloads für DynoGrip, DynoPull und passendes Zubehör.",
-    en: "3D files, print notes and CAD downloads for DynoGrip, DynoPull and matching accessories.",
-    fr: "Fichiers 3D, conseils d'impression et téléchargements CAD pour DynoGrip, DynoPull et les accessoires compatibles.",
-    it: "File 3D, note di stampa e download CAD per DynoGrip, DynoPull e accessori compatibili.",
+    de: "Freigegebene STL- und STP-Dateien für die aktuellen DynoGrip Modelle.",
+    en: "Released STL and STP files for the current DynoGrip models.",
+    fr: "Fichiers STL et STP validés pour les modèles DynoGrip actuels.",
+    it: "File STL e STP rilasciati per gli attuali modelli DynoGrip.",
   },
   footerHome: {
     de: "DynoForce",
@@ -219,10 +207,10 @@ export const uiText = {
     it: "Per questo modello non è ancora disponibile un'anteprima STL.",
   },
   stepDownloadable: {
-    de: "STEP-Dateien bleiben trotzdem direkt downloadbar.",
-    en: "STEP files are still available for direct download.",
-    fr: "Les fichiers STEP restent disponibles en téléchargement direct.",
-    it: "I file STEP restano comunque disponibili per il download diretto.",
+    de: "STP-Dateien bleiben trotzdem direkt downloadbar.",
+    en: "STP files are still available for direct download.",
+    fr: "Les fichiers STP restent disponibles en téléchargement direct.",
+    it: "I file STP restano comunque disponibili per il download diretto.",
   },
 } satisfies Record<string, LocalizedText>;
 

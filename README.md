@@ -4,7 +4,7 @@ Weboberflaeche fuer DynoForce-3D-Dateien mit:
 
 - Suche und Produktfilter
 - STL-Preview direkt im Browser
-- Download von STL- und STEP-Dateien
+- Download von STL- und STP-Dateien
 - Druckhinweisen, Materialempfehlungen und Zusatzinfos pro Modell
 - direktem statischem Deployment auf GitHub Pages
 
@@ -34,8 +34,11 @@ Die App ist fuer GitHub Pages und eine eigene Subdomain vorkonfiguriert.
 ```text
 public/files/
   dynogrip/
-  dynopull/
-  attachments/
+    core-unit/
+    main-grip-access/
+    main-grip-mini-access/
+    main-grip-mini-standard/
+    main-grip-standard/
 
 src/data/models.ts
   Zentrale Metadaten fuer Titel, Beschreibungen, Hinweise und Downloads
