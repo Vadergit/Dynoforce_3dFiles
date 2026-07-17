@@ -7,6 +7,46 @@ import type {
 
 export const productFilters: ProductFamily[] = ["All", "DynoGrip"];
 
+export const modelGroups = [
+  {
+    id: "core-unit",
+    title: {
+      de: "Core Unit",
+      en: "Core Unit",
+      fr: "Core Unit",
+      it: "Core Unit",
+    },
+    modelIds: ["dynogrip-core-unit"],
+  },
+  {
+    id: "main-grip",
+    title: {
+      de: "MainGrip",
+      en: "MainGrip",
+      fr: "MainGrip",
+      it: "MainGrip",
+    },
+    modelIds: ["dynogrip-main-grip-standard", "dynogrip-main-grip-access"],
+  },
+  {
+    id: "main-grip-mini",
+    title: {
+      de: "MainGrip Mini",
+      en: "MainGrip Mini",
+      fr: "MainGrip Mini",
+      it: "MainGrip Mini",
+    },
+    modelIds: [
+      "dynogrip-main-grip-mini-standard",
+      "dynogrip-main-grip-mini-access",
+    ],
+  },
+] satisfies Array<{
+  id: string;
+  title: LocalizedText;
+  modelIds: string[];
+}>;
+
 const downloadStl: LocalizedText = {
   de: "Download STL",
   en: "Download STL",

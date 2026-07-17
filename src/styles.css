@@ -417,7 +417,36 @@ h3 {
 
 .catalog {
   display: grid;
-  gap: 14px;
+  gap: 18px;
+}
+
+.model-group {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.model-group-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.model-group-head::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
+
+.model-group-list {
+  display: grid;
+  gap: 10px;
 }
 
 .model-card {

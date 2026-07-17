@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import StlPreview from "./components/StlPreview";
-import { models, productFilters } from "./data/models";
+import { modelGroups, models, productFilters } from "./data/models";
 import {
   defaultLanguage,
   detectLanguage,
@@ -67,6 +67,15 @@ export default function App() {
     filteredModels.find((model) => model.id === selectedId) ??
     filteredModels[0] ??
     null;
+  const groupedModels = modelGroups
+    .map((group) => ({
+      ...group,
+      models: group.modelIds.flatMap((modelId) => {
+        const model = filteredModels.find((entry) => entry.id === modelId);
+        return model ? [model] : [];
+      }),
+    }))
+    .filter((group) => group.models.length > 0);
   const featuredCount = models.filter((model) => model.featured).length;
 
   return (
@@ -171,14 +180,23 @@ export default function App() {
 
           <div className="library-layout">
             <div className="catalog">
-              {filteredModels.map((model) => (
-                <ModelCard
-                  key={model.id}
-                  language={language}
-                  model={model}
-                  active={model.id === selectedModel?.id}
-                  onSelect={() => setSelectedId(model.id)}
-                />
+              {groupedModels.map((group) => (
+                <section className="model-group" key={group.id}>
+                  <div className="model-group-head">
+                    <span>{translate(group.title, language)}</span>
+                  </div>
+                  <div className="model-group-list">
+                    {group.models.map((model) => (
+                      <ModelCard
+                        key={model.id}
+                        language={language}
+                        model={model}
+                        active={model.id === selectedModel?.id}
+                        onSelect={() => setSelectedId(model.id)}
+                      />
+                    ))}
+                  </div>
+                </section>
               ))}
               {filteredModels.length === 0 ? (
                 <div className="empty-results">
